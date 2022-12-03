@@ -1,34 +1,66 @@
+import { Dispatch, SetStateAction, useState } from "react";
 import { MainContainedButton } from "../gobal";
 import "./style.css";
 
+const playModes = [
+  {
+    id: 1,
+    name: "Baseball cage",
+    image: "/play-modes/baseball.png",
+  },
+  {
+    id: 2,
+    name: "Softball cage",
+    image: "/play-modes/baseball.png",
+  },
+  {
+    id: 3,
+    name: "Cricket cage",
+    image: "/play-modes/baseball.png",
+  },
+  {
+    id: 4,
+    name: "Open field",
+    image: "/play-modes/baseball.png",
+  },
+];
+
 const SportsCard = () => {
+  const [isSelected, setIsSelected] = useState(0);
+
   return (
     <>
-      <div className="flex items-center justify-center mt-5 ">
+      <div className="flex items-center justify-center mt-5">
         <div className="rounded-3xl p-10 shadow-md w-9/12 bg-main-900 sports_selection_card">
-          <div className="w-full items-center justify-between pb-3 md:flex">
-            <div className="flex items-center space-x-3">
+          <div className="w-full items-center justify-between pb-0 md:flex">
+            <div className="flex items-center">
               <h2 className="text-xl font-medium text-gray-700 sm:text-3xl dark:text-gray-200">
-                Select your sport
+                Play modes
               </h2>
             </div>
 
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center">
               <MainContainedButton href="/" text="Proceed" />
             </div>
           </div>
 
           <p className="text-md text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            Select your champion sport to proceed
           </p>
 
-          <div className="mb-0">
+          <div className="mb-2">
             <div className="container">
-              <div className="xl:mt-12 md:flex ">
-                <SportsCardImage />
-                <SportsCardImage />
-                <SportsCardImage />
-                <SportsCardImage />
+              <div className="xl:mt-5 md:flex space-x-4">
+                {playModes.map((mode) => (
+                  <SportsCardImage
+                    name={mode.name}
+                    image={mode.image}
+                    productId={mode.id}
+                    key={mode.id}
+                    isSelected={isSelected === mode.id}
+                    setIsSelected={setIsSelected}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -40,11 +72,24 @@ const SportsCard = () => {
 
 export default SportsCard;
 
-const SportsCardImage = () => {
+const SportsCardImage = (props: {
+  name: string;
+  image: string;
+  productId: number;
+  isSelected: boolean;
+  setIsSelected: Dispatch<SetStateAction<number>>;
+}) => {
   return (
     <>
-      <div className="flex justify-center 4 mx-auto border cursor-pointer rounded-xl content-end dark:border-gray-700 mt-5 md:mt-0 md:w-1/2 bg-[url('/baseball.png')] h-40 md:ml-5 align-bottom">
-        <span className="text-white inset-x-0 bottom-0 mt-28">Basbal cage</span>
+      <div
+        className={`flex justify-center 4 mx-auto border cursor-pointer rounded-xl content-end ${
+          props.isSelected ? "border-red-500" : "border-gray-700"
+        } mt-5 md:mt-0 md:w-1/2 bg-[url('${props.image}')] h-40 align-bottom`}
+        onClick={() => props.setIsSelected(props.productId)}
+      >
+        <span className="text-white inset-x-0 bottom-0 mt-28">
+          {props.name}
+        </span>
       </div>
       ​
     </>
