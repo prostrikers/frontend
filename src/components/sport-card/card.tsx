@@ -30,7 +30,7 @@ const SportsCard = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center mt-5">
+      <div className="flex items-center justify-center mt-5 w-full">
         <div className="rounded-3xl p-10 pt-5 shadow-md w-11/12 bg-main-900 sports_selection_card">
           <div className="w-full items-center justify-between pb-0 md:flex">
             <div className="flex items-center">
