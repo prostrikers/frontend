@@ -8,7 +8,7 @@ function App() {
     <>
       <section>
         <div className="w-full">
-          <div className="flex bg-white">
+          <div className="flex bg-white ">
             <div className="flex items-center text-center lg:text-left px-8 md:px-12 lg:w-1/2 p-10">
               <div>
                 <Header>

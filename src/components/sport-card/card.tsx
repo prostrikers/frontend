@@ -31,26 +31,26 @@ const SportsCard = () => {
   return (
     <>
       <div className="flex items-center justify-center mt-5">
-        <div className="rounded-3xl p-10 pt-5 shadow-md w-9/12 bg-main-900 sports_selection_card">
+        <div className="rounded-3xl p-10 pt-5 shadow-md w-11/12 bg-main-900 sports_selection_card">
           <div className="w-full items-center justify-between pb-0 md:flex">
             <div className="flex items-center">
-              <h2 className="text-xl font-medium text-gray-700 sm:text-3xl dark:text-gray-200">
+              <h2 className="text-3xl font-medium text-gray-700 sm:text-3xl dark:text-gray-200">
                 Play modes
               </h2>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center sm:mt-4">
               <MainContainedButton href="/" text="Proceed" />
             </div>
           </div>
 
-          <p className="text-md text-gray-400">
+          <p className="text-md text-gray-400 max-sm:mt-5">
             Select your champion sport to proceed
           </p>
 
           <div className="mb-2">
             <div className="container">
-              <div className="xl:mt-5 md:flex space-x-4">
+              <div className="mt-5 md:flex md:space-x-10">
                 {playModes.map((mode) => (
                   <SportsCardImage
                     name={mode.name}
@@ -82,9 +82,9 @@ const SportsCardImage = (props: {
   return (
     <>
       <div
-        className={`flex justify-center 4 mx-auto border cursor-pointer rounded-xl content-end ${
+        className={`flex justify-center border-4 cursor-pointer rounded-xl content-end ${
           props.isSelected ? "border-red-500" : "border-gray-700"
-        } mt-5 md:mt-0 md:w-1/2 bg-[url('${props.image}')] h-40 align-bottom`}
+        } md:w-full bg-[url('${props.image}')] h-40 align-bottom`}
         onClick={() => props.setIsSelected(props.productId)}
       >
         <span className="text-white inset-x-0 bottom-0 mt-28">
