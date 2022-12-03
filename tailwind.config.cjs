@@ -43,6 +43,15 @@ module.exports = {
           800: "#285E61",
           900: "#234E52",
         },
+        main:{
+          100:"#6ED7D6",
+          200:"#6ED7D6",
+          300:"#25ADAC",
+          400: "#0A5888",
+
+          800: "#06282F",
+          900: "#06283D",
+        }
       },
       boxShadow: {
         xs: "0 0 0 1px rgba(0, 0, 0, 0.16)",
@@ -63,7 +72,7 @@ module.exports = {
         "1/1": "100%",
       },
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
+        inter: ["Roboto", "sans-serif"],
       },
       fontSize: {
         xs: "0.75rem",
