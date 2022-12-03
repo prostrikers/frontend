@@ -4,8 +4,6 @@ import { Header, ContainedButton } from "./components/gobal";
 import { SportsCard } from "./components/sport-card";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <section>
@@ -31,7 +29,7 @@ function App() {
             </div>
             <div className="hidden lg:block lg:w-1/2 player_header">
               <div className="h-full object-cover">
-                <div className="h-full bg-black opacity-25"></div>
+                <div className="h-full bg-main-400 opacity-60"></div>
               </div>
             </div>
           </div>
