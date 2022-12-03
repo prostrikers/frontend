@@ -50,6 +50,3 @@ const SportsCardImage = () => {
     </>
   );
 };
-
-// text-xs text-white rounded-full justify-center align-bottom content-end text-center
-// "flex justify-items-center  4 mx-auto border cursor-pointer rounded-xl content-end dark:border-gray-700 mt-5 md:mt-0 md:w-1/2 bg-[url('/baseball.png')] h-40 md:ml-5">
