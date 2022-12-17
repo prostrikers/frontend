@@ -5,7 +5,7 @@ export interface IBookingDetails {
   place: string;
   transactionId: string;
   isCompleted: boolean;
-  createdAt: ;
+  createdAt: Date;
   updatedAt: Date;
   __v: number;
 }
