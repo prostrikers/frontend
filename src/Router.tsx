@@ -1,7 +1,7 @@
 import { SignInPage } from "./pages/Sign-in";
 import { useRoutes } from "react-router-dom";
 import { HomePage } from "./pages/Home";
-import { BookNow } from "./pages/BookNow";
+import { BookNow } from "./pages/book-now";
 
 export const ApplicationRouter = () => {
   let routes = useRoutes([
