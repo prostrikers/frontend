@@ -1,15 +1,21 @@
 import "./Header.css";
-import { SportsCard } from "./components/sport-card";
 import { ApplicationRouter } from "./Router";
 import { BrowserRouter } from "react-router-dom";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
       <section>
-        <BrowserRouter>
-          <ApplicationRouter />
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <ApplicationRouter />
+          </BrowserRouter>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </section>
     </>
   );
