@@ -255,6 +255,35 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.16.tgz#284522de76abe951e4ed2bd24a467e8d49c67933"
   integrity sha512-SDLfP1uoB0HZ14CdVYgagllgrG7Mdxhkt4jDJOKl/MldKrkQ6vDJMZKl2+5XsEY/Lzz37fjgLQoJBGuAw/x8kQ==
 
+"@fullcalendar/core@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-6.0.0.tgz#d969fec1097afc3c6cc1dea3fb3ea733c9a4030a"
+  integrity sha512-0lseac4/yJQhT9QjPGlqwEsZsoD0kKjuUI9KNUWMXqBPcK7Gk1pXJyP2Np7k9aqU5yLF7+pKp7fYR4YPiy++ew==
+  dependencies:
+    preact "^10.0.5"
+
+"@fullcalendar/daygrid@^6.0.0", "@fullcalendar/daygrid@~6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.0.0.tgz#3ac16d70925955c9f81a53ac0b76b1b5c3213f7d"
+  integrity sha512-Lzv1saFduDR9amaC1zeHFb+iBBqGF7Gu+j5O6zTSZarCCWlrc9lgTN7sB6VAQE2XIFfz8s9EzK3UYd/goaKMpA==
+
+"@fullcalendar/interaction@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.0.0.tgz#913ebaff673547fed87e763e3e5575451f895f47"
+  integrity sha512-fVv1b/HTh8AnPvKD/bFhlcEexVqOnhRNPlJFZtsiM4Ts4kNBIm9m53FHwGTkcV4Xi8lx3I1V1jOQE6OEm0KcQw==
+
+"@fullcalendar/react@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-6.0.0.tgz#0c294309d29c185af9c3d62f11d038a66a6474b2"
+  integrity sha512-uxICTGtFclJigItsB4kH8xUHeV8KRKpAJpV2YFDBocN4KH/Xn+y/NnO5nl9YjRTYRSbi8YOAZtdVfvoU3nYPDA==
+
+"@fullcalendar/timegrid@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-6.0.0.tgz#246ab17c1dedc6fb4e23897302b1749174baa2d1"
+  integrity sha512-R/IalqJjCG2/l2s2mIBJeq7YYcoShsM6Ee+vVu1wRRfBWDG2mLt1WiWmF74g7RhqPXAHymD6uptA0FlzIDnIxQ==
+  dependencies:
+    "@fullcalendar/daygrid" "~6.0.0"
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz#e5d2e450306a9491e3bd77e323e38d7aff315996"
@@ -1474,6 +1503,11 @@ postcss@^8.4.18, postcss@^8.4.19:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+preact@^10.0.5:
+  version "10.11.3"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.11.3.tgz#8a7e4ba19d3992c488b0785afcc0f8aa13c78d19"
+  integrity sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==
 
 queue-microtask@^1.2.2:
   version "1.2.3"
