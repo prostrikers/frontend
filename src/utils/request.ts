@@ -39,6 +39,7 @@ const checkStatus = async (response: Response) => {
       }
     });
   }
+
   const res = (await response.json()) as IRestApiResponse;
   const apiMessage = res.message ?? "Something went wrong";
   toast.error(isArray(apiMessage) ? res.message.join(", ") : res.message, {

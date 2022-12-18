@@ -1,4 +1,4 @@
-import { Header } from "../components/gobal";
+import { SignInForm } from "./components/form";
 
 export const SignInPage = () => {
   return (
@@ -6,25 +6,7 @@ export const SignInPage = () => {
       <div className="flex min-h-screen">
         <div className="flex flex-row w-full">
           <div className="flex flex-1 flex-col items-center justify-center px-10 relative">
-            <div className="flex lg:hidden justify-between items-center w-full py-4">
-              <div className="flex items-center justify-start space-x-3">
-                <span className="bg-black rounded-full w-6 h-6"></span>
-                <a href="#" className="font-medium text-lg">
-                  Brand
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span>Not a member? </span>
-                <a href="#" className="underline font-medium text-[#070eff]">
-                  Sign up now
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-1 flex-col  justify-center space-y-5 max-w-md">
-              <button className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative w-fit">
-                <span>Sign in with Google</span>
-              </button>
-            </div>
+            <SignInForm />
           </div>
 
           <div className="hidden lg:flex flex-col justify-between lg:p-8 xl:p-12 lg:max-w-lg xl:max-w-3xl bg-[url('/login-banner.png')]">

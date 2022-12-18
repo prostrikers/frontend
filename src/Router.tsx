@@ -1,4 +1,4 @@
-import { SignInPage } from "./pages/Sign-in";
+import { SignInPage } from "./pages/sign-in";
 import { useRoutes } from "react-router-dom";
 import { HomePage } from "./pages/Home";
 import { BookNow } from "./pages/book-now";
