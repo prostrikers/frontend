@@ -5,20 +5,24 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 
+import { ThemeProvider } from "@material-tailwind/react";
+
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <section>
-        <Toaster />
-        <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <ApplicationRouter />
-          </BrowserRouter>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </section>
+      <ThemeProvider>
+        <section>
+          <Toaster />
+          <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+              <ApplicationRouter />
+            </BrowserRouter>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </section>
+      </ThemeProvider>
     </>
   );
 }

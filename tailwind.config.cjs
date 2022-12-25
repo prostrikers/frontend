@@ -1,12 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/typography"),
-    require("tailwindcss-children"),
-  ],
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -43,15 +38,15 @@ module.exports = {
           800: "#285E61",
           900: "#234E52",
         },
-        main:{
-          100:"#6ED7D6",
-          200:"#6ED7D6",
-          300:"#25ADAC",
-          400:"#0EBDBB",
+        main: {
+          100: "#6ED7D6",
+          200: "#6ED7D6",
+          300: "#25ADAC",
+          400: "#0EBDBB",
 
           800: "#06282F",
           900: "#06283D",
-        }
+        },
       },
       boxShadow: {
         xs: "0 0 0 1px rgba(0, 0, 0, 0.16)",
@@ -139,11 +134,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    backgroundColor: ["responsive", "hover", "focus", "group-hover"],
-    textColor: ["responsive", "hover", "focus", "group-hover"],
-    translate: ["responsive", "hover", "focus", "group-hover"],
-    boxShadow: ["responsive", "hover", "focus", "focus-within"],
-    opacity: ["responsive", "hover", "focus", "group-hover"],
-  },
-};
+
+  plugins: [],
+});
