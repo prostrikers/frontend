@@ -1,5 +1,5 @@
 import { DateSelectArg } from "@fullcalendar/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCompletedBookings from "../../hooks/meta/completed-bookings";
 import { CalendarScheduler } from "./event-calender/scheduler";
 import { Select, Option } from "@material-tailwind/react";
@@ -13,9 +13,15 @@ const lanes = [
 ];
 
 export const BookNow = () => {
-  const bookedEvents = useCompletedBookings();
   const [selectedTime, setSelectedTime] = useState<DateSelectArg | null>(null);
-  const [selectedLane, setSelectedLane] = useState(lanes[0]);
+  const [selectedLane, setSelectedLane] = useState("1");
+
+  const bookedEvents = useCompletedBookings(selectedLane);
+
+  useEffect(() => {
+    setSelectedTime(null);
+    bookedEvents.refetch();
+  }, [selectedLane]);
 
   return (
     <>
@@ -46,7 +52,10 @@ export const BookNow = () => {
             <dl>
               <div className="bg-white py-5 sm:grid sm:grid-cols-3 sm:gap-4 ">
                 <dt className="text-sm font-medium text-gray-900">
-                  <Listbox value={selectedLane} onChange={setSelectedLane}>
+                  <Listbox
+                    value={selectedLane}
+                    onChange={(e) => console.log(e)}
+                  >
                     <Listbox.Options>
                       {lanes.map((lane) => (
                         <Listbox.Option
@@ -60,10 +69,14 @@ export const BookNow = () => {
                     </Listbox.Options>
                   </Listbox>
                   <div className="w-5">
-                    <Select label="Select a lane">
-                      <Option>Lane 1</Option>
-                      <Option>Lane 2</Option>
-                      <Option>Lane 3</Option>
+                    <Select
+                      label="Select a lane"
+                      value={selectedLane.toString()}
+                      onChange={(e) => setSelectedLane(e)}
+                    >
+                      <Option value="1">Lane 1</Option>
+                      <Option value="2">Lane 2</Option>
+                      <Option value="3">Lane 3</Option>
                     </Select>
                   </div>
                 </dt>
@@ -79,20 +92,63 @@ export const BookNow = () => {
             </dl>
           </div>
 
-          {bookedEvents.isLoading && (
+          {bookedEvents.isRefetching ? (
             <>
               <CircularProgress />
             </>
-          )}
-
-          {bookedEvents.isSuccess && (
-            <CalendarScheduler
-              eventsCalendar={bookedEvents.data.data}
-              selectedTime={selectedTime}
-              setSelectedTime={setSelectedTime}
-            />
+          ) : (
+            <>
+              {bookedEvents.isLoading ? (
+                <>
+                  <CircularProgress />
+                </>
+              ) : (
+                <>
+                  {bookedEvents.isSuccess && (
+                    <CalendarScheduler
+                      eventsCalendar={bookedEvents.data.data}
+                      selectedTime={selectedTime}
+                      setSelectedTime={setSelectedTime}
+                    />
+                  )}
+                </>
+              )}
+            </>
           )}
         </div>
+
+        <div className="mt-10 p-2">
+          <p className="text-black-500 text-2xl">Add ons</p>
+
+          <ul className="list-disc mt-5">
+            <li>
+              Pro bowling machine (Baseball/Cricket) speed up to 100mph with
+              more options ($20.00 / per hour)
+            </li>
+            <li>
+              Baseball/Cricket/Softball Bowling machine up to 60mph ($15.00 /
+              per hour)
+            </li>
+            <li>
+              (Baseball/Cricket) Junior bowling machine up to 40mph ($10.00 /
+              per hour)
+            </li>
+
+            <li>
+              Cricket gear kit (stumps, 2 cricket bats, and ball) ($20.00 / per
+              slot)
+            </li>
+          </ul>
+        </div>
+
+        {selectedTime && (
+          <p className="mt-5 text-black-500 text-2xl leading-relaxed p-2">
+            Your selected time is
+            <span className="bg-gray-200 p-2 rounded-md ml-2 text-lg">
+              {`${selectedTime?.start.toLocaleTimeString()} - ${selectedTime?.end.toLocaleTimeString()}`}
+            </span>
+          </p>
+        )}
       </section>
     </>
   );
